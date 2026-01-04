@@ -4,13 +4,7 @@ WALIDS = [
 ]
 
 
-class Walid:
-    pass
-
-
 def is_walid(maybe_walid):
-    return isinstance(maybe_walid, Walid) or \
-           (
-                   isinstance(maybe_walid, str) and
-                   maybe_walid.lower() in WALIDS
-           )
+    maybe_walid = maybe_walid if isinstance(maybe_walid, str) \
+        else type(maybe_walid).__name__
+    return maybe_walid.lower() in WALIDS
